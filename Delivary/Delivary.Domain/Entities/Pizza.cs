@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Delivary.Domain.Entities
+﻿namespace Delivary.Domain.Entities
 {
     public class Pizza
     {

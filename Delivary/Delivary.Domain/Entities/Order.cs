@@ -9,5 +9,8 @@ namespace Delivary.Domain.Entities
         public Customer Customer { get; set; } = null!;
         public Address Address { get; set; } = null!;
         public Guid CustomerId {  get; set; } 
+        public DateTime CreatedDate { get; set; }
+        public DateTime? CompletionDate {  get; set; }
+        public bool Completed { get; set; }
     }
 }
