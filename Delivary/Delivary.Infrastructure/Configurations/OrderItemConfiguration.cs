@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Delivary.Infrastructure.Configurations
 {
-    public class OrderConfiguration : IEntityTypeConfiguration<Order>
+    public class OrderItemConfiguration : IEntityTypeConfiguration<OrderItem>
     {
-        public void Configure(EntityTypeBuilder<Order> builder)
+        public void Configure(EntityTypeBuilder<OrderItem> builder)
         {
-            builder.ComplexProperty(o => o.Address);
+            builder.HasKey(x => new { x.OrderId, x.PizzaId });
         }
     }
 }

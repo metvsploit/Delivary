@@ -10,7 +10,9 @@ namespace Delivary.Infrastructure
         public static void AddPersistence(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<PizzaDbContext>(options =>
-                options.UseNpgsql(configuration.GetConnectionString("Database"),
+                options
+                .LogTo(Console.WriteLine)
+                .UseNpgsql(configuration.GetConnectionString("Database"),
                 b => b.MigrationsAssembly(typeof(PizzaDbContext).Assembly.FullName)), ServiceLifetime.Transient);
 
             services.AddScoped<IPizzaDbContext>(provider => provider.GetService<PizzaDbContext>());

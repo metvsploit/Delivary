@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Delivary.Infrastructure.Configurations
 {
-    internal class CustomerConfiguration : IEntityTypeConfiguration<Customer>
+    public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
     {
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
@@ -13,8 +13,6 @@ namespace Delivary.Infrastructure.Configurations
                 nameBuilder.Property(x => x.FirstName).HasColumnName("FirstName");
                 nameBuilder.Property(x => x.LastName).HasColumnName("LastName");
             });
-
-            builder.HasMany(x => x.Orders).WithOne(x => x.Customer);
         }
     }
 }

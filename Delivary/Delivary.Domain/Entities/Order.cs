@@ -5,7 +5,7 @@ namespace Delivary.Domain.Entities
     public class Order
     {
         public Guid Id { get; set; }
-        public List<Pizza> Pizzas { get; set; } = [];
+        public List<OrderItem> Pizzas { get; set; } = [];
         public Customer Customer { get; set; } = null!;
         public Address Address { get; set; } = null!;
         public Guid CustomerId {  get; set; } 

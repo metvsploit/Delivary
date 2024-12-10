@@ -19,26 +19,23 @@ namespace Delivary.Application.Services
 
         public async Task<Pizza> Create(PizzaDTO model)
         {
-            try
-            {
-                var pizza = _mapper.Map<Pizza>(model);
+            var pizza = _mapper.Map<Pizza>(model);
 
-                await _db.Pizzas.AddAsync(pizza);
-                await _db.SaveChangesAsync();
+            await _db.Pizzas.AddAsync(pizza);
+            await _db.SaveChangesAsync();
 
-                return pizza;
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
+            return pizza;
         }
 
         public async Task<bool> Delete(Guid id)
         {
             try
             {
-                var pizza = await GetById(id);
+                var pizza = await _db.Pizzas.FirstOrDefaultAsync(x => x.Id == id);
+                if (pizza == null)
+                {
+                    throw new Exception("Пицца не найдена");
+                }
 
                 _db.Pizzas.Remove(pizza);
                 await _db.SaveChangesAsync();
@@ -70,7 +67,7 @@ namespace Delivary.Application.Services
         {
             try
             {
-                var result = await _db.Pizzas.ToListAsync();
+                var result = await _db.Pizzas.AsNoTracking().ToListAsync();
                 return result;
             }
             catch (Exception ex)
@@ -83,7 +80,7 @@ namespace Delivary.Application.Services
         {
             try
             {
-                var pizza = await _db.Pizzas.FirstOrDefaultAsync(x => x.Id == id);
+                var pizza = await _db.Pizzas.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
                 return pizza;
             }
             catch (Exception ex)

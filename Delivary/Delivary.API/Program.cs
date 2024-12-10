@@ -1,5 +1,7 @@
 using Delivary.Application;
+using Delivary.Application.Exceptions;
 using Delivary.Infrastructure;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
+    var filePath = Path.Combine(AppContext.BaseDirectory, "Delivary.API.xml");
+    options.IncludeXmlComments(filePath);
+});
 
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddBase();
@@ -27,6 +34,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.MapControllers();
 
