@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+  web:
+    container_name: delivary
+    build:
+      context: ./Delivary.API # Path to your API's folder
+      dockerfile: Delivary.API/Dockerfile
+    ports:
+      - "8080:80"  # Map host port 8080 to container port 80
+    volumes:
+      - ./Delivary.API/Delivary.API.csproj:/src/Delivary.API/Delivary.API.csproj # Optional, if you need to rebuild
+    depends_on:
+      - db # Makes sure database starts before web
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development #or Production etc.
+      # Example database connection string
+      # - ConnectionString=Server=db;Database=mydatabase;User Id=myuser;Password=mypassword;
+      - ASPNETCORE_URLS=http://*:80
+    networks:
+      - my-net
+
+  db:
+    container_name: postgres
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12321325
+      - POSTGRES_DB=postgres
+    networks:
+      - my-net
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+volumes:
+  postgres-data:
+
+networks:
+  my-net:
+    driver: bridge

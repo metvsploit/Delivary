@@ -11,8 +11,4 @@
     <ProjectReference Include="..\Delivary.Domain\Delivary.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
-
 </Project>

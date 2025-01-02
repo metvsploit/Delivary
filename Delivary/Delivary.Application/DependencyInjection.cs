@@ -11,7 +11,10 @@ namespace Delivary.Application
         public static void AddBase(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(AppMappingProfile));
+            services.AddSingleton<IElasticSearch, ElasticSearch>();
             services.AddScoped<IPizzaService, PizzaService>();
+            services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IOrderService, OrderService>();
         }
     }
 }

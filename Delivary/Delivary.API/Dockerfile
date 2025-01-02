@@ -27,4 +27,4 @@ RUN dotnet publish "./Delivary.API.csproj" -c $BUILD_CONFIGURATION -o /app/publi
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Delivary.API.dll"]
+ENTRYPOINT ["dotnet", "Delivary.API.dll", "--environment=Development"]

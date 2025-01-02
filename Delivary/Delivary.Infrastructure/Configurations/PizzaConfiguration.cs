@@ -8,7 +8,7 @@ namespace Delivary.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Pizza> builder)
         {
-            builder.HasAlternateKey(x => x.Name);
+            builder.HasIndex(x => x.Name).IsUnique();
         }
     }
 }

@@ -8,7 +8,8 @@ namespace Delivary.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Order> builder)
         {
-            builder.ComplexProperty(o => o.Address);
+            builder.HasOne(x => x.Customer).WithMany(x => x.Orders).HasForeignKey(x => x.CustomerId);
+            builder.OwnsOne(o => o.Address);
         }
     }
 }

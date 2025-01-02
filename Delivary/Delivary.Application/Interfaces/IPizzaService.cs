@@ -10,5 +10,7 @@ namespace Delivary.Application.Interfaces
         Task<bool> Edit(Pizza model);
         Task<List<Pizza>> GetAll();
         Task<Pizza> GetById(Guid id);
+        Task<List<Pizza>> GetByPagination(int page, int size);
+        Task<List<Pizza>> GetByPrefix(string prefix);
     }
 }

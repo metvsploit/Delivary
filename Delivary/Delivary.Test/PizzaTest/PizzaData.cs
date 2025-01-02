@@ -21,7 +21,6 @@ namespace Delivary.Test.PizzaTest
             {
                 var pizza = new Pizza
                 {
-                    //Id = Guid.NewGuid(),
                     Name = $"Pizza {i}",
                     Description = $"Pizza Decription",
                     Price = random.Next(100, 900)

@@ -8,11 +8,13 @@ namespace Delivary.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
-            builder.ComplexProperty(x => x.Name, nameBuilder =>
-            {
-                nameBuilder.Property(x => x.FirstName).HasColumnName("FirstName");
-                nameBuilder.Property(x => x.LastName).HasColumnName("LastName");
-            });
+            builder.OwnsOne(x => x.Name);
+
+            //builder.ComplexProperty(x => x.Name, nameBuilder =>
+            //{
+            //    nameBuilder.Property(x => x.FirstName).HasColumnName("FirstName");
+            //    nameBuilder.Property(x => x.LastName).HasColumnName("LastName");
+            //});
         }
     }
 }

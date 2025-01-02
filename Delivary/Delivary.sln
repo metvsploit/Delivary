@@ -3,15 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivary.Domain", "Delivary.Domain\Delivary.Domain.csproj", "{893FCA84-A985-40BC-82A2-31A8C8266283}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delivary.Domain", "Delivary.Domain\Delivary.Domain.csproj", "{893FCA84-A985-40BC-82A2-31A8C8266283}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivary.Infrastructure", "Delivary.Infrastructure\Delivary.Infrastructure.csproj", "{D3B87152-9BD1-40BB-B124-440589989240}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delivary.Infrastructure", "Delivary.Infrastructure\Delivary.Infrastructure.csproj", "{D3B87152-9BD1-40BB-B124-440589989240}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivary.Application", "Delivary.Application\Delivary.Application.csproj", "{2DB8DD59-E58B-43C1-A08D-64292E91C281}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delivary.Application", "Delivary.Application\Delivary.Application.csproj", "{2DB8DD59-E58B-43C1-A08D-64292E91C281}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivary.API", "Delivary.API\Delivary.API.csproj", "{35655A53-8427-453E-B37B-3CB22D515D21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delivary.API", "Delivary.API\Delivary.API.csproj", "{35655A53-8427-453E-B37B-3CB22D515D21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivary.Test", "Delivary.Test\Delivary.Test.csproj", "{37F22BC0-09CF-452E-B5B1-5D19E231FDAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delivary.Test", "Delivary.Test\Delivary.Test.csproj", "{37F22BC0-09CF-452E-B5B1-5D19E231FDAA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{C7294B2E-1E4C-4B91-BAB6-DF94A15F2A2F}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
